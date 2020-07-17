@@ -265,9 +265,36 @@ let alumni = new Student(me3);
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
+class ProjectManager extends Instructor{
+  constructor(obj){
+    super(obj);
+    this.gradClassName = obj.gradClassName;
+    this.favInstructor = obj.favInstructor;
+  };
+  standUp(slack){
+    return `${this.name} announces to ${slack}, @channel standy times!`;
+  }
+  debugCode(student, subject){
+    return `${this.name} debugs ${student.name}'s code on ${subject}`;
+  };
+};
 
-}
+const pm = {
+  name: "Lexie",
+  age: "Young",
+  location: "Earth",
+  specialty: "Good Advice",
+  favLanguage: "English",
+  catchPhrase: "Blame Robert",
+  gradClassName: "Can't remember",
+  favInstructor: "Dan"
+};
+
+const TL = new ProjectManager(pm);
+console.log(TL);
+console.log(TL.standUp("Webpt20_lexie"));
+console.log(TL.debugCode(alumni, "CSS"));
+console.log(TL.demo("React"));
 
 /*
   STRETCH PROBLEM (no tests!)
