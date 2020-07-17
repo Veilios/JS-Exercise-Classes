@@ -119,12 +119,12 @@ class Car {
 };
 
 let myCar = new Car("Equinox", 22);
-myCar.fill(25);
-console.log(myCar);
-myCar.drive(200);
-myCar.drive(300);
+// myCar.fill(25);
 // console.log(myCar);
-console.log(myCar.drive(100));
+// myCar.drive(200);
+// myCar.drive(300);
+// console.log(myCar);
+// console.log(myCar.drive(100));
 /*
   TASK 3
     - Write a Lambdasian class.
@@ -138,8 +138,25 @@ console.log(myCar.drive(100));
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
+  constructor(obj){
+    this.name = obj.name;
+    this.age = obj.age;
+    this.location = obj.location;
+  };
+  speak(){
+    return `Hello my name is ${this.name}, I am from ${this.location}`;
+  };
+};
 
-}
+let me2 = {
+  name: "Alan",
+  age: 22,
+  location: "Atlanta, Georgia"
+};
+
+let alan = new Lambdasian(me2);
+console.log(alan.speak());
+
 
 /*
   TASK 4
