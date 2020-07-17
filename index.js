@@ -155,7 +155,7 @@ let me2 = {
 };
 
 let alan = new Lambdasian(me2);
-console.log(alan.speak());
+// console.log(alan.speak());
 
 
 /*
@@ -190,15 +190,16 @@ class Instructor extends Lambdasian{
 let teach = {
   name: "Erick",
   age: 36,
-  location: "New York",
+  location: "New York, New York",
   specialty: "React",
   favLanguage: "Javascript",
   catchPhrase: "No homework today!"  
 };
 
 let teach2 = new Instructor(teach);
-console.log(teach2);
-console.log(teach2.demo("React"));
+// console.log(teach2);
+// console.log(teach2.demo("React"));
+
 
 
 /*
@@ -216,9 +217,40 @@ console.log(teach2.demo("React"));
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student {
+class Student extends Lambdasian {
+  constructor(obj){
+    super(obj);
+    this.previousBackground = obj.previousBackground;
+    this.className = obj.className;
+    this.favSubjects = obj.favSubjects;
+  };
+  listSubjects(){
+    return `Loving ${this.favSubjects}`;
+  };
+  PRAssignment(subject){
+    return `${this.name} has submitted a PR for ${subject}`;
+  };
+  sprintChallenge(subject){
+    return `${this.name} has begun a sprint challenge on ${subject}`;
+  };
+};
 
-}
+const me3 = {
+  name: "Alan",
+  age: 22,
+  location: "Atlanta, Georgia",
+  previousBackground: "Photographer",
+  className: "Webpt20",
+  favSubjects: ["CSS", " Python", " Javascript", " React"]
+};
+
+let alumni = new Student(me3);
+
+// console.log(alumni);
+// console.log(alumni.listSubjects());
+// console.log(alumni.PRAssignment("Classes"));
+// console.log(alumni.sprintChallenge("Javascript"));
+// console.log(teach2.grade(alumni, "Python"));
 
 /*
   TASK 6
