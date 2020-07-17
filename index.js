@@ -61,21 +61,21 @@ class Person {
 
 
 let me = new Person("Alan", 22);
-me.eat("Pizza");
-me.eat("Pasta");
-me.eat("HotDog");
-me.eat("Sandwich");
-me.eat("Muffins");
-me.eat("Cake");
-me.eat("Pie");
-me.eat("Apple");
-me.eat("Cookies");
-me.eat("Bread");
-me.eat("GrapeFruit");
-console.log(me.stomach);
-me.poop();
-me.eat("GrapeFruit");
-console.log(me.stomach);
+// me.eat("Pizza");
+// me.eat("Pasta");
+// me.eat("HotDog");
+// me.eat("Sandwich");
+// me.eat("Muffins");
+// me.eat("Cake");
+// me.eat("Pie");
+// me.eat("Apple");
+// me.eat("Cookies");
+// me.eat("Bread");
+// me.eat("GrapeFruit");
+// console.log(me.stomach);
+// me.poop();
+// me.eat("GrapeFruit");
+// console.log(me.stomach);
 // console.log(me.toString());
 
 /*
@@ -93,9 +93,38 @@ console.log(me.stomach);
 */
 
 class Car {
+  constructor(model, milesPerGallon){
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
+    this.fuel = 0;
+  };
+  fill(gallons){
+    this.tank += gallons;
+    this.fuel = this.tank * this.milesPerGallon;
+  };
+  drive(distance){
 
-}
+    if(this.fuel < distance){
+      this.odometer += this.fuel;
+      this.tank = 0;
+      return `I ran out of fuel at ${this.odometer} miles!`
+    } else {
+      this.odometer += distance;
+      this.tank -= distance / this.milesPerGallon;
+      this.fuel = this.tank * this.milesPerGallon;
+    };
+  };
+};
 
+let myCar = new Car("Equinox", 22);
+myCar.fill(25);
+console.log(myCar);
+myCar.drive(200);
+myCar.drive(300);
+// console.log(myCar);
+console.log(myCar.drive(100));
 /*
   TASK 3
     - Write a Lambdasian class.
